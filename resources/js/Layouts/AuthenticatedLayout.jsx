@@ -4,21 +4,13 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
-import { Sun,Moon } from 'lucide-react';
+import { ThemeSwitcher } from '@/Hooks/useThemeSwitcher';
 
 export default function AuthenticatedLayout({ children }) {
     const user = usePage().props.auth.user;
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
-    // document.documentElement.classList.remove("dark");
-    const [theme, setTheme] = useState('light')
-
-    const toggleTheme = ()=>{
-         setTheme((theme)=>{
-           return theme = !theme
-        })
-    }
 
     return (
             <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -46,11 +38,8 @@ export default function AuthenticatedLayout({ children }) {
                                     </NavLink>
                                 </div>
                             </div>
-                            <div className="flex content-between gap-5">
-                                <div className="flex items-center" onClick={()=>{toggleTheme}}>
-                                        { (theme === 'dark')? <Sun/> : <Moon/>}
-                                    </div>
-                                <div className="hidden sm:ms-6 sm:flex sm:items-center">
+                            <div className="flex content-between gap-4 sm:gap-0">                                  
+                                <div className="hidden sm:mx-0 sm:flex sm:items-center">
                                 <div className="relative ms-3">
                                         <Dropdown>
                                             <Dropdown.Trigger>
@@ -135,6 +124,7 @@ export default function AuthenticatedLayout({ children }) {
                                         </svg>
                                     </button>
                                 </div>
+                                <ThemeSwitcher key='{now()}'/>
                             </div>
                         </div>
                     </div>
@@ -180,7 +170,7 @@ export default function AuthenticatedLayout({ children }) {
                     </div>
                 </nav>
 
-                <main>{children}</main>
+                <main className='w-full'>{children}</main>
             </div>
     );
 }
