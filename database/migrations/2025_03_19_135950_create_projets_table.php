@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('projets', function (Blueprint $table) {
             $table->id();
-            $table->string("nom_du_projet");
+            $table->string("nom_projet");
             $table->string("budget");
             $table->string("date_du_debut");
             $table->string("annee")->max(4);

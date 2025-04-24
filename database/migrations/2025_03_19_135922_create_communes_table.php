@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('communes', function (Blueprint $table) {
             $table->id();            
-            $table->string("nom");
+            $table->string("nom_commune");
             $table->foreignIdFor(District::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->softDeletes();
             $table->timestamps();
