@@ -5,3 +5,24 @@
 *,body{
     transition: .3s all ease;
 }
+table,thead,tbody,tr,th,td{
+    @apply dark:border-gray-500 border-collapse border-gray-300 border py-1 px-3 font-normal;
+}
+thead{
+    @apply dark:bg-gray-700/90 bg-white/40;
+}
+tbody{
+    @apply dark:bg-gray-800/60 bg-white/90;
+}
+th{
+   @apply font-semibold uppercase; 
+}
+.card{
+    @apply dark:bg-gray-500/50 bg-gray-200/60 p-2 rounded-sm shadow-sm grid grid-rows-3;
+}
+.text-blue-gardiant{
+    @apply bg-gradient-to-r from-blue-500 to-blue-200 bg-clip-text text-transparent leading-normal;
+}
+.text-indigo-gardiant{
+    @apply bg-gradient-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent leading-normal;
+}
